@@ -312,4 +312,103 @@ def problem_6():
     print(f"There are {down_day} down-day this week")
     print(f"There are {flat_day} flat day this week")
 
-problem_6()
+
+
+"""
+------------------------------------------------------------
+Problem 5 — Historical Value at Risk
+------------------------------------------------------------
+
+You are given the daily returns of a portfolio:
+
+returns = [0.03, -0.01, -0.04, 0.02, -0.02, 0.01, -0.05]
+
+Tasks:
+
+1. Sort the returns from worst to best.
+2. Print the worst and best return.
+3. Count:
+    - positive days
+    - negative days
+    - flat days
+4. Use the second-worst return as a simplified historical VaR.
+5. Display the VaR as a positive percentage.
+6. Ask the user for the portfolio value.
+7. Calculate the potential monetary loss:
+
+   potential_loss = portfolio_value * VaR
+
+8. Print a short risk report.
+
+Example output:
+
+Worst return: -5.00%
+Best return: 3.00%
+Positive days: 3
+Negative days: 4
+Flat days: 0
+Historical VaR: 4.00%
+Potential loss: 4000.00
+
+Rules:
+- Use sorted()
+- Use indexing
+- Use loops
+- Use functions
+- Use try/except for the portfolio value
+- Do not use NumPy or pandas
+
+Challenge:
+Calculate the average of the two worst returns and call it
+a simplified Expected Shortfall.
+"""
+
+def problem_5():
+    try:
+        
+        # 1 - Stored and Sorted the returns of the week
+
+        returns = input("Enter the weekly returns in (%) separated by commas: ")
+        returns = returns.split(",")
+        returns = [float(r.strip()) / 100 for r in returns]
+        sorted_return = sorted(returns, reverse=True)
+
+
+        # 3 - Counted the number of postive, negative and flat days
+
+        positive_days = 0 
+        negative_days = 0 
+        flat_days = 0 
+
+        for r in sorted_return:
+            if r > 0:
+                positive_days += 1
+            elif r < 0:
+                negative_days += 1
+            elif r == 0 : 
+                flat_days += 1
+
+
+        # 4 & 5 - Assinging the VaR with the 2nd worst return day (The VaR rate) and display the VaR value
+
+        portfolio_value = float(input("What's your portofolio value ? : "))
+        var_rate = abs(sorted_return[-2])
+        var = portfolio_value * var_rate
+
+
+        # Printing the risk report
+        print()
+        print("HERE IS THE THE WEEKLY RISK REPORT") 
+        print()
+        print(f"The best return of the week is: {sorted_return[0] * 100:.2f}%")
+        print(f"The worst return of the week is: {sorted_return[-1] * 100:.2f}%")
+        print(f"There are {positive_days} positive days this week")
+        print(f"There are {negative_days} negative days this week")
+        print(f"There are {flat_days} flat days this week")
+        print("The Value at risk for your portfolio this week is : ", var)
+    
+    except(ValueError): 
+        pass
+
+
+problem_5()
