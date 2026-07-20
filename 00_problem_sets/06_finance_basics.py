@@ -411,4 +411,136 @@ def problem_5():
         pass
 
 
-problem_5()
+
+
+"""
+------------------------------------------------------------
+Problem 3 — Trade Profit and Loss Report
+------------------------------------------------------------
+
+Ask the user for:
+
+- entry price
+- exit price
+- quantity
+- transaction fee
+
+Calculate:
+
+1. Gross PnL:
+
+   gross_pnl = (exit_price - entry_price) * quantity
+
+2. Net PnL:
+
+    net_pnl = gross_pnl - transaction_fee
+
+3. Return percentage:
+
+    return_percentage = (exit_price - entry_price) / entry_price
+
+Then classify the trade:
+
+- If net PnL is positive, print "profit"
+- If net PnL is negative, print "loss"
+- If net PnL is zero, print "flat"
+
+Display a clean report containing:
+
+- entry price
+- exit price
+- quantity
+- gross PnL
+- transaction fee
+- net PnL
+- return percentage
+- trade result
+
+Rules:
+
+- Use functions
+- Use try/except
+- Reject prices or quantities that are zero or negative
+- Display money with 2 decimal places
+- Display the return as a percentage
+
+Challenge:
+
+Ask whether the trade was:
+
+- long
+- short
+
+For a short trade, use:
+
+gross_pnl = (entry_price - exit_price) * quantity
+"""
+
+def problem_3():
+    try:
+        entry_price = float(input("Enter the entry price: "))
+        exit_price = float(input("Enter the exit price: "))
+        quantity = int(input("Enter the quantity bought: "))
+        transaction_fee = float(input("Enter your transaction fees: "))
+
+        if (
+            entry_price <= 0
+            or exit_price <= 0
+            or quantity <= 0
+        ):
+            raise ValueError
+    except ValueError:
+        print("Please enter valid numbers.")
+        return
+
+    try:
+        long_or_short = input("Is your trade long or short ? : ").strip().lower()
+
+        if long_or_short == "short":
+            gross_pnl = (entry_price - exit_price) * quantity
+
+        elif long_or_short == "long":
+            gross_pnl = (exit_price - entry_price) * quantity
+
+        else:
+            raise ValueError
+    
+    except ValueError:
+        print("The answer can only be either long or short, Try Again !")
+        return
+
+    net_pnl = gross_pnl - transaction_fee
+
+    initial_position_value = entry_price * quantity
+    net_return_percentage = net_pnl / initial_position_value * 100
+
+    if net_pnl > 0:
+        trade_result = "PROFIT"
+    elif net_pnl < 0:
+        trade_result = "LOSS"
+    else:
+        trade_result = "FLAT"
+    
+    
+    print(f"""
+==================================================
+                 TRADE REPORT
+==================================================
+Trade type:           {long_or_short.upper()}
+Entry price:          {entry_price:,.2f}
+Exit price:           {exit_price:,.2f}
+Quantity:             {quantity}
+--------------------------------------------------
+Gross PnL:            {gross_pnl:,.2f}
+Transaction fees:     {transaction_fee:,.2f}
+Net PnL:              {net_pnl:,.2f}
+Net return:           {net_return_percentage:.2f}%
+--------------------------------------------------
+Trade result:         {trade_result}
+==================================================
+""")
+
+
+problem_3()
+
+
