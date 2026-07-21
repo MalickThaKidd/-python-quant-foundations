@@ -1,0 +1,40 @@
+{
+    "portfolio": {
+        "APPL": {
+            "quantity": 350,
+            "price": 300.0,
+            "value": 105000.0
+        },
+        "AMAZON": {
+            "quantity": 350,
+            "price": 100.0,
+            "value": 35000.0
+        },
+        "SPACEX": {
+            "quantity": 500,
+            "price": 90.0,
+            "value": 45000.0
+        },
+        "TESLA": {
+            "quantity": 350,
+            "price": 120.0,
+            "value": 42000.0
+        },
+        "ARAMCO": {
+            "quantity": 500,
+            "price": 600.0,
+            "value": 300000.0
+        },
+        "BRIGDE": {
+            "quantity": 70,
+            "price": 10.0,
+            "value": 700.0
+        },
+        "SONATEL": {
+            "quantity": 100,
+            "price": 30.0,
+            "value": 3000.0
+        }
+    },
+    "cash_balance": 506750.0
+}
