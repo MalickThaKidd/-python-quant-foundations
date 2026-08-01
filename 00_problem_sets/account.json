@@ -1,9 +1,9 @@
 {
     "portfolio": {
         "APPL": {
-            "quantity": 350,
-            "price": 300.0,
-            "value": 105000.0
+            "quantity": 300,
+            "price": 23.0,
+            "value": 6900.0
         },
         "AMAZON": {
             "quantity": 350,
@@ -34,7 +34,17 @@
             "quantity": 100,
             "price": 30.0,
             "value": 3000.0
+        },
+        "TOTAL": {
+            "quantity": 400,
+            "price": 150.0,
+            "value": 60000.0
+        },
+        "APPLE": {
+            "quantity": 450,
+            "price": 150.0,
+            "value": 67500.0
         }
     },
-    "cash_balance": 506750.0
+    "cash_balance": 521750.0
 }

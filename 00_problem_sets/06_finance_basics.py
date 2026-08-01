@@ -478,6 +478,7 @@ gross_pnl = (entry_price - exit_price) * quantity
 
 def problem_3():
     try:
+        ticker = input("Enter the name of the ticker: ")
         entry_price = float(input("Enter the entry price: "))
         exit_price = float(input("Enter the exit price: "))
         quantity = int(input("Enter the quantity bought: "))
@@ -526,6 +527,7 @@ def problem_3():
 ==================================================
                  TRADE REPORT
 ==================================================
+Ticker Trade:         {ticker}
 Trade type:           {long_or_short.upper()}
 Entry price:          {entry_price:,.2f}
 Exit price:           {exit_price:,.2f}

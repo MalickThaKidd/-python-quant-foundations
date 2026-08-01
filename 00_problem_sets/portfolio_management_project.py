@@ -95,7 +95,11 @@ def portfolio_tool(account):
     print("└" + "─" * width + "┘")
 
 def trade_pnl_tool(account):
+    
+    portfolio = account["portfolio"]
+
     try:
+        ticker = input("Enter the name of the ticker: ")
         entry_price = float(input("Enter the entry price: "))
         exit_price = float(input("Enter the exit price: "))
         quantity = int(input("Enter the quantity bought: "))
@@ -107,6 +111,8 @@ def trade_pnl_tool(account):
     except ValueError:
         print("Please enter valid numbers.")
         return
+
+    
 
     try:
         long_or_short = input("Is your trade long or short ? : ").strip().lower()
@@ -152,6 +158,7 @@ def trade_pnl_tool(account):
                                         ==================================================
                                                         TRADE REPORT
                                         ==================================================
+                                        Ticker Trade:         {ticker}
                                         Trade type:           {long_or_short.upper()}
                                         Entry price:          {entry_price:,.2f}
                                         Exit price:           {exit_price:,.2f}
